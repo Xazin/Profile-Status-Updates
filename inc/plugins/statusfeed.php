@@ -380,7 +380,11 @@ function statusfeed_info() {
 
 		}
 		$status_updates = $feed;
-			
+		
+		if ($mybb->user['uid'] > 0) {
+			eval("\$statusfeed_form = \"".$templates->get("statusfeed_form")."\";");
+		}
+		
 		// $pagination = multipage($numrows, $rowsperpage, $currentpage, "member.php?action=profile&uid=$profile_UID");
 		$statusfeed_viewall = '<center><a href="statusfeed.php">'.$lang->statusfeed_view_all_updates.'</a></center>';
 		eval("\$statusfeed = \"".$templates->get("statusfeed_portal")."\";");
