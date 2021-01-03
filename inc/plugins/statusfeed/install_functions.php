@@ -371,12 +371,7 @@ $(\'.sf_comment_form_{$parent}\').on(\'submit\', function (e) {
         <td class="trow2" colspan="2">
         {$pagination}
             <form id="sf_form_profile">
-                <div style="statusfeed_portal_formcontainer">
-<textarea name="status" rows="2" class="statusfeed_all_textarea" onfocus="if(this.value == \'{$lang->statusfeed_update_status_textbox}\') {this.value=\'\';}" onblur="if(this.value==\'\') {this.value=\'{$lang->statusfeed_update_status_textbox}\';}">{$lang->statusfeed_update_status_textbox}</textarea>
-                    <input type="hidden" name="wall_id" value="{$profile_UID}">
-                    <input type="hidden" name="post_key" value="{$mybb->post_code}">
-<input type="submit" value="{$lang->statusfeed_update_status}" class="statusfeed_block_submit button">
-                </div>
+                {$statusfeed_form}
             </form>
         </td>
     </tr>
@@ -411,13 +406,7 @@ $(\'.sf_comment_form_{$parent}\').on(\'submit\', function (e) {
                     {$pagination}
                     <br />
                     <form id="sf_form_all">
-                        <div class="statusfeed_portal_formcontainer">
-                            <textarea name="status" rows="2" class="statusfeed_all_textarea" onfocus="if(this.value == \'{$lang->statusfeed_update_status_textbox}\') {this.value=\'\';}" onblur="if(this.value==\'\') {this.value=\'{$lang->statusfeed_update_status_textbox}\';}">{$lang->statusfeed_update_status_textbox}</textarea>
-                            <input type="hidden" name="wall_id" value="{$profile_UID}">
-                            <input type="hidden" name="reply_id" value="-1">
-                            <input type="hidden" name="post_key" value="{$mybb->post_code}">
-                            <input type="submit" value="{$lang->statusfeed_update_status}" class="button statusfeed_all_submitbutton">
-                        </div>
+                        {$statusfeed_form}
                     </form>
                 </td>
             </tr>
@@ -444,12 +433,7 @@ $(\'.sf_comment_form_{$parent}\').on(\'submit\', function (e) {
     <tr>
         <td class="trow1" colspan="2">
         <form id="sf_form_{$statusStyle}">
-                <div class="statusfeed_portal_formcontainer">
-                    <textarea name="status" rows="2" class="statusfeed_portal_textarea" onfocus="if(this.value == \'{$lang->statusfeed_update_status_textbox}\') {this.value=\'\';}" onblur="if(this.value==\'\') {this.value=\'{$lang->statusfeed_update_status_textbox}\';}">{$lang->statusfeed_update_status_textbox}</textarea>
-                    <input type="hidden" name="reply_id" value="-1">
-                    <input type="hidden" name="post_key" value="{$mybb->post_code}">
-<input type="submit" value="{$lang->statusfeed_update_status}" class="button statusfeed_portal_submit">
-                </div>
+                {$statusfeed_form}
             </form>
         {$statusfeed_viewall}
         </td>
@@ -458,6 +442,14 @@ $(\'.sf_comment_form_{$parent}\').on(\'submit\', function (e) {
 <br />
 ';
 
+    $template['statusfeed_form'] = '<div class="statusfeed_portal_formcontainer">
+    <textarea name="status" rows="2" class="statusfeed_all_textarea" onfocus="if(this.value == \'{$lang->statusfeed_update_status_textbox}\') {this.value=\'\';}" onblur="if(this.value==\'\') {this.value=\'{$lang->statusfeed_update_status_textbox}\';}">{$lang->statusfeed_update_status_textbox}</textarea>
+    <input type="hidden" name="reply_id" value="-1">
+    <input type="hidden" name="post_key" value="{$mybb->post_code}">
+    <input type="submit" value="{$lang->statusfeed_update_status}" class="button statusfeed_portal_submit">
+</div>
+';
+	
 // Old: Remove the _{$StatusStyle} from the form IDs and uncomment the script. 
 
     $template['statusfeed_popup'] = '
@@ -497,12 +489,7 @@ $(\'.sf_comment_form_{$parent}\').on(\'submit\', function (e) {
 					<td class="trow2" colspan="2">
 					{$pagination}
 						<form id = "sf_form">
-							<div class="statusfeed_portal_formcontainer">
-		<textarea name="status" rows="2" class="statusfeed_portal_textarea" placeholder = "{$lang->statusfeed_write_status_popup}">{$lang->statusfeed_write_status_popup}</textarea>
-								<input type="hidden" name="wall_id" value="{$profile_UID}">
-								<input type="hidden" name="post_key" value="{$mybb->post_code}">
-		<input type="submit" value="{$lang->statusfeed_update_status}" style="width: 100%; " class="button statusfeed_portal_submit">
-							</div>
+							{$statusfeed_form}
 						</form>
 					</td>
 				</tr>
