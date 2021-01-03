@@ -818,7 +818,7 @@ function statusfeed_uninstall () {
     $db->write_query("ALTER TABLE `".TABLE_PREFIX."users` DROP `sf_unreadcomments`;");
     $db->write_query("ALTER TABLE `".TABLE_PREFIX."users` DROP `sf_currentstatus`;");
     
-    $templates_to_remove = array('statusfeed_portal', 'statusfeed_popup', 'statusfeed_profile', 'statusfeed_comment_mini', 'statusfeed_comment_full', 'statusfeed_likeButton', 'statusfeed_reportButton', 'statusfeed_postbit', 'statusfeed_notifications_container', 'statusfeed_notification', 'statusfeed_postbit', 'statusfeed_edit', 'statusfeed_all', 'statusfeed_post_full', 'statusfeed_post_mini', 'statusfeed_comments_container');
+    $templates_to_remove = array('statusfeed_portal', 'statusfeed_popup', 'statusfeed_profile', 'statusfeed_comment_mini', 'statusfeed_comment_full', 'statusfeed_likeButton', 'statusfeed_reportButton', 'statusfeed_postbit', 'statusfeed_notifications_container', 'statusfeed_notification', 'statusfeed_postbit', 'statusfeed_edit', 'statusfeed_all', 'statusfeed_post_full', 'statusfeed_post_mini', 'statusfeed_comments_container', 'statusfeed_form');
     foreach($templates_to_remove as $data) {
         $db->delete_query('templates', "title = '{$data}'");
     }
