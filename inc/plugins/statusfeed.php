@@ -267,6 +267,10 @@ function statusfeed_info() {
 			$pagination = multipage_ajax($numrows, $rowsperpage, $currentpage, "member.php?action=profile&uid=$profile_UID", $profile_UID);
 		}		
 		
+		if ($mybb->user['uid'] > 0) {
+			eval("\$statusfeed_form = \"".$templates->get("statusfeed_form")."\";");
+		}
+		
 		$status_updates = $feed;
 		eval("\$statusfeed_profile = \"".$templates->get($altTemplate)."\";");
 
